@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moreira Avogados | Despacho de Abogados en A Coruña</title>
+    <style>
+        /* Estilos Generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Navegación */
+        nav {
+            background: #111e30; /* Azul Medianoche */
+            color: #fff;
+            padding: 1.2rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav .logo {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+
+        nav .logo span {
+            color: #c0a060; /* Dorado corporativo */
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #c0a060;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(17, 30, 48, 0.88), rgba(17, 30, 48, 0.88)), 
+                        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 750px;
+            color: #d1d5db;
+        }
+
+        /* Secciones */
+        .container {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #111e30;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: #c0a060;
+            margin: 10px auto 0;
+        }
+
+        /* Especialidades */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 35px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid #111e30;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-top-color: #c0a060;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: #111e30;
+            margin-top: 0;
+            font-size: 1.3rem;
+        }
+
+        /* Botón de Acción */
+        .cta-button {
+            background: #c0a060;
+            color: #fff;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 3px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-top: 25px;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #a88a4e;
+        }
+
+        /* Bloque Sobre Nosotros */
+        .about-block {
+            background: #fff;
+            border-left: 5px solid #c0a060;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+
+        .schedule-info {
+            margin-top: 20px;
+            background: #eef2f7;
+            padding: 15px 20px;
+            border-radius: 4px;
+            border-left: 3px solid #111e30;
+            display: inline-block;
+        }
+
+        /* Sección de Contacto Dinámica */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .contact-info-panel {
+            background: #fff;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-info-panel h3 {
+            color: #111e30;
+            margin-top: 0;
+            border-bottom: 2px solid #f4f4f4;
+            padding-bottom: 10px;
+        }
+
+        .info-item {
+            margin: 20px 0;
+        }
+
+        .info-item strong {
+            color: #111e30;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Formulario de Citas */
+        .appointment-form {
+            background: #fff;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .appointment-form h3 {
+            color: #111e30;
+            margin-top: 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #111e30;
+        }
+
+        .submit-btn {
+            background: #111e30;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #1f3554;
+        }
+
+        /* Footer */
+        footer {
+            background: #0b131f;
+            color: #9ca3af;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            border-top: 1px solid #1a2a44;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">MOREIRA <span>AVOGADOS</span></div>
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#servicios">Especialidades</a></li>
+            <li><a href="#nosotros">El Despacho</a></li>
+            <li><a href="#contacto">Contacto y Citas</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="inicio">
+        <h1>Moreira Avogados</h1>
+        <p>Asesoramiento jurídico especializado. Defendemos sus intereses con el máximo rigor profesional y absoluta confidencialidad.</p>
+        <a href="#contacto" class="cta-button">Solicitar Cita Previa</a>
+    </header>
+
+    <div class="container" id="servicios">
+        <h2 class="section-title">Nuestras Especialidades</h2>
+        <div class="services">
+            <div class="service-card">
+                <h3>Derecho Laboral</h3>
+                <p>Defensa experta en despidos, reclamaciones de cantidad, expedientes de regulación, accidentes laborales, invalidez y conflictos colectivos.</p>
+            </div>
+            <div class="service-card">
+                <h3>Procesos de Divorcios</h3>
+                <p>Asesoramiento integral y humano en procesos de separación, divorcio de mutuo acuerdo o contencioso, convenios reguladores y guardia y custodia.</p>
+            </div>
+            <div class="service-card">
+                <h3>Testamentos y Sucesiones</h3>
+                <p>Planificación de herencias, redacción de testamentos, liquidación de impuestos de sucesiones y resolución de disputas entre herederos.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="nosotros" style="background: #f1f3f5;">
+        <h2 class="section-title">Compromiso y Confianza</h2>
+        <div class="about-block">
+            <p>En <strong>Moreira Avogados</strong> prestamos servicios jurídicos basados en la transparencia, el estudio pormenorizado de cada caso y la máxima lealtad al cliente. Analizamos la viabilidad de sus pretensiones de forma realista, buscando siempre la alternativa legal más eficiente.</p>
+            
+            <div class="schedule-info">
+                <strong>Horario de atención al cliente (Citas):</strong><br>
+                De Lunes a Jueves, desde las 16:00 hasta las 19:00 horas.
+            </div>
+        </div>
+    </div>
+
+    <div class="container" id="contacto">
+        <h2 class="section-title">Contacto y Solicitud de Cita</h2>
+        <div class="contact-wrapper">
+            
+            <!-- Datos de Contacto -->
+            <div class="contact-info-panel">
+                <h3>Datos de Contacto</h3>
+                
+                <div class="info-item">
+                    <strong>Dirección del Bufete:</strong>
+                    Calle Castiñeiras de Abaixo, 16, Bajo<br>
+                    C.P. 15006 - A Coruña
+                </div>
+
+                <div class="info-item">
+                    <strong>Teléfono Directo:</strong>
+                    <a href="tel:608858127" style="color: #111e30; font-weight: bold; text-decoration: none;">608 85 81 27</a>
+                </div>
+
+                <div class="info-item">
+                    <strong>Correo Electrónico:</strong>
+                    <a href="mailto:moreiraavogados@gmail.com" style="color: #c0a060; text-decoration: none; font-weight: 500;">moreiraavogados@gmail.com</a>
+                </div>
+
+                <div class="info-item" style="margin-top: 30px; background: #fafafa; padding: 15px; border-radius: 4px; border: 1px dashed #dee2e6;">
+                    <small style="color: #666; display: block; text-align: center;">
+                        Ubicados en el término municipal de A Coruña. Atención presencial bajo cita programada.
+                    </small>
+                </div>
+            </div>
+
+            <!-- Formulario de reserva -->
+            <div class="appointment-form">
+                <h3>Solicitar Información o Cita</h3>
+                <form action="#" method="POST" onsubmit="alert('Gracias por su mensaje. Moreira Avogados se pondrá en contacto con usted para confirmar la cita.'); return false;">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo:</label>
+                        <input type="text" id="name" required placeholder="Ej: Juan Pérez">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono de Contacto:</label>
+                        <input type="tel" id="phone" required placeholder="Ej: 600000000">
+                    </div>
+                    <div class="form-group">
+                        <label for="specialty">Asunto / Especialidad:</label>
+                        <select id="specialty" required>
+                            <option value="">Seleccione una opción...</option>
+                            <option value="laboral">Derecho Laboral</option>
+                            <option value="divorcio">Proceso de Divorcio</option>
+                            <option value="sucesiones">Testamentos y Sucesiones</option>
+                            <option value="otro">Otras consultas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Breve descripción de su caso:</label>
+                        <textarea id="message" rows="4" placeholder="Escriba aquí los detalles principales..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Solicitud de Cita</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Moreira Avogados. Todos los derechos reservados.</p>
+        <p>Atención profesional de Lunes a Jueves (16:00 - 19:00) | A Coruña</p>
+    </footer>
+
+</body>
+</html>
